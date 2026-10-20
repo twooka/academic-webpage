@@ -1,0 +1,191 @@
+/* ---------- colors and fonts (change the accent color here) ---------- */
+
+:root {
+  --bg: #ffffff;
+  --surface: #f4f3f1;
+  --text: #222222;
+  --muted: #696663;
+  --border: #dddbd8;
+  --accent: #8a2232;
+  /* Charter is preinstalled on macOS, Bitstream Charter on most Linux, Sitka/Cambria on Windows */
+  --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1a19;
+    --surface: #262523;
+    --text: #e8e6e3;
+    --muted: #a39f9a;
+    --border: #3a3836;
+    --accent: #eaa3ab;
+  }
+}
+
+/* ---------- base ---------- */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 var(--serif);
+  -webkit-text-size-adjust: 100%;
+}
+
+.wrap { width: 100%; max-width: 860px; margin: 0 auto; padding: 0 20px; }
+main.wrap { flex: 1; padding-top: 40px; padding-bottom: 64px; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+h1, h2 { font-weight: 700; line-height: 1.25; }
+h1 { font-size: 2rem; margin: 0 0 0.3em; }
+h2 { font-size: 1.2rem; margin: 2.2em 0 0.7em; }
+
+p { margin: 0 0 1em; }
+.lead { color: var(--muted); }
+.empty { color: var(--muted); font-style: italic; }
+
+/* ---------- header ---------- */
+
+.site-header { border-bottom: 1px solid var(--border); }
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 24px;
+  padding-top: 18px;
+  padding-bottom: 14px;
+}
+.site-name { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+.site-name:hover { text-decoration: none; }
+
+nav { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+nav a { color: var(--muted); }
+nav a:hover { color: var(--text); }
+nav a[aria-current="page"] { color: var(--text); text-decoration: underline; text-underline-offset: 5px; }
+
+
+/* ---------- [bracketed] links: abstract, arXiv, pdf... ---------- */
+
+.btn {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+/* inline-block keeps the brackets out of the hover underline */
+.btn::before { content: "["; display: inline-block; color: var(--muted); }
+.btn::after { content: "]"; display: inline-block; color: var(--muted); }
+.btn:hover { text-decoration: underline; text-underline-offset: 2px; }
+
+/* ---------- about page ---------- */
+
+.about { display: grid; grid-template-columns: 220px 1fr; gap: 44px; align-items: start; }
+.about-photo { margin: 0; }
+.about-photo figcaption { margin-top: 6px; color: var(--muted); font-size: 0.85rem; font-style: italic; text-align: center; }
+
+.photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--surface);
+}
+.avatar {
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 3.5rem;
+}
+
+.role { color: var(--muted); margin-bottom: 1.4em; }
+
+.contact { display: grid; grid-template-columns: 90px 1fr; gap: 4px 16px; margin: 0; }
+.contact dt { color: var(--muted); }
+.contact dd { margin: 0; overflow-wrap: anywhere; }
+
+.news { margin: 0; padding: 0; list-style: none; }
+.news li { display: grid; grid-template-columns: 90px 1fr; gap: 16px; padding: 4px 0; }
+.news .date { color: var(--muted); }
+
+/* ---------- publications and other works ---------- */
+
+h2.group { font-size: 1.05rem; color: var(--muted); margin: 1.8em 0 0.6em; }
+
+.entries { margin: 0; padding: 0; list-style: none; }
+.entry + .entry { margin-top: 18px; }
+.entry-title { font-weight: 700; line-height: 1.4; }
+.entry-meta { color: var(--muted); font-size: 0.95rem; }
+.entry-desc { font-size: 0.95rem; }
+.entry-links { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 3px; }
+
+.abstract {
+  margin-top: 8px;
+  padding: 2px 0 2px 14px;
+  border-left: 2px solid var(--border);
+  font-size: 0.93rem;
+}
+
+/* math typeset by KaTeX: same size as the text (its default is larger) */
+.katex { font-size: 1em; }
+
+/* ---------- CV ---------- */
+
+.cv-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; }
+.cv-head h1 { margin: 0; }
+
+.cv-item { display: grid; grid-template-columns: 140px 1fr; gap: 20px; padding: 5px 0; }
+.cv-when { color: var(--muted); font-size: 0.93rem; padding-top: 1px; }
+.cv-details { color: var(--muted); font-size: 0.95rem; }
+
+/* ---------- passions ---------- */
+
+.epigraph { margin: -0.2em 0 1.1em auto; max-width: 26em; text-align: right; }
+.epigraph p { margin: 0; font-size: 1.15rem; font-style: italic; }
+.epigraph footer { color: var(--muted); font-size: 0.9rem; }
+
+.plain-list { margin: -0.4em 0 1em; padding-left: 1.4em; list-style-type: "– "; }
+.plain-list li { margin: 3px 0; }
+
+.photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin: 6px 0 8px; }
+.photos figure { margin: 0; }
+/* all photos are cropped to 4:3; the crop leans upwards so faces in portrait photos stay in */
+.photos img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 30%; background: var(--surface); }
+.photos figcaption { margin-top: 4px; color: var(--muted); font-size: 0.85rem; font-style: italic; }
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 640px) {
+  main.wrap { padding-top: 28px; }
+  h1 { font-size: 1.75rem; }
+
+  .about { grid-template-columns: 1fr; gap: 24px; }
+  .about-photo { width: 160px; }
+  .contact { grid-template-columns: 75px 1fr; }
+  .avatar { font-size: 2.6rem; }
+
+  .news li, .cv-item { grid-template-columns: 1fr; gap: 0; }
+  .photos { grid-template-columns: 1fr 1fr; gap: 10px; }
+}
+
+/* ---------- printing (e.g. CV page -> PDF) ---------- */
+
+@media print {
+  .site-header nav, .btn { display: none !important; }
+  .site-header { border: 0; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  main.wrap { padding: 0; }
+  a { color: inherit; }
+}
