@@ -69,12 +69,12 @@ const SITE = {
  */
 const PUBLICATIONS = [
   {
-    title:     String.raw`Existence and uniqueness of bound states with prescribed number of nodes for nonlinear dispersive equations on spherically symmetric manifolds`,
-    abstract:  String.raw`Standing waves $e^{i\omega t}u(x)$ of nonlinear dispersive equations, such as the nonlinear Schrödinger and Klein–Gordon equations, have a profile $u$ that solves a nonlinear elliptic ODE of the form $\Delta u+f(u)=0$. We prove the existence of radial bound states with a prescribed number of nodal surfaces for this equation, on a large class of spherically symmetric manifolds and nonlinearities $f$. Under mild assumptions, we prove uniqueness of such bound states for the model nonlinearity $f(u)=|u|^{p-1}u-u$. Both existence and uniqueness results apply to some manifolds with a singularity at the origin.`,
+    title:     String.raw`Existence and uniqueness of radial bound states with prescribed number of nodes for nonlinear dispersive equations on spherically symmetric manifolds`,
+    abstract:  String.raw`Standing waves $e^{i\omega t}u(x)$ of nonlinear dispersive equations, such as the nonlinear Schr\"odinger and Klein--Gordon equations, have a profile $u$ that solves the semilinear elliptic equation $\Delta u+f(u)=0$. We prove the existence of radial bound states with a prescribed number of nodal surfaces for this equation on a large class of spherically symmetric manifolds and for a broad class of nonlinearities $f$. Under further assumptions on the metric, we prove uniqueness of such bound states for the model nonlinearity $f(u)=|u|^{p-1}u-u$. Both existence and uniqueness results apply to the hyperbolic spaces $\mathbb{H}^n_\lambda$ of any curvature $-\lambda^2$ and dimension $n\geq 3$, and to some manifolds with a singularity at the origin.`,
     field:     "PDE",
     coauthors: [],
     arxiv:     "2610.13813",
-    journal:   "Preprint",
+    journal:   "Preprint, submitted",
     month:     10,
     year:      2026,
   },
@@ -268,7 +268,7 @@ const PASSIONS = [
   {
     title: "Volunteering for the Italian Math Olympiads",
     // e.g. a link to the official site: <a href="https://olimpiadi.dm.unibo.it/">Olimpiadi della Matematica</a>
-    text: `I have volunteered for the <a href="https://olimpiadi.dm.unibo.it/">Italian Math Olympiads</a>, helping to organize and run the events, and preparing problems for the competitions. Since 2024 I also grade the national exams for the Italian Math Olympiads.`,
+    text: `I have volunteered for the <a href="https://olimpiadi.dm.unibo.it/">Italian Math Olympiads</a>, helping to organize and run the events, and preparing problems for the competitions. Since 2025 I also grade the national exams for the Italian Math Olympiads.`,
     photos: [],
   },
   {
